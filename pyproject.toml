@@ -1,0 +1,25 @@
+[project]
+name = "cs1390-vector-db"
+version = "0.1.0"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    # Part 1
+    "faiss-cpu==1.9.0.post1",
+    "matplotlib==3.10.0",
+    "numpy==2.2.0",
+    "Pympler==1.1",
+    "scikit-learn==1.6.0",
+    "tqdm==4.67.1",
+    # RAG extension
+    "sentence-transformers==6.0.0",
+    "torch==2.14.1",
+]
+
+# Embedding runs on CPU, so skip the multi-GB CUDA build of torch on Linux
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

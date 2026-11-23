@@ -1,0 +1,11 @@
+*.gz
+/.cache
+/siftsmall
+*.pyc
+__pycache__/
+.venv/
+rag_data/
+slurm-*.out
+ollama-*.log
+# runs/ (results files and plots) is tracked on purpose: commit the runs your report uses
+saved/
